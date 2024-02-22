@@ -25,3 +25,12 @@ Allocating -> Requesting data and get a pointer to the reserved memory
 - There can only be one owner at a time.
 - When the owner goes out of scope, the value will be dropped.
 
+### Memory and Allocation
+
+- String type: mutable, growable piece of text, that its size unknown at compile time
+means:
+
+- The memory must be requested from the memory allocator at compile-time
+- Way is needed to return this memory to the allocator when finished
+
+First part: Memory is requested by me when calling String::from("hello")
