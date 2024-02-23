@@ -34,3 +34,23 @@ means:
 - Way is needed to return this memory to the allocator when finished
 
 First part: Memory is requested by me when calling String::from("hello")
+
+A string consists of -> in memory, information stored on the stack
+- pointer to the memory adress i.e. index zero of the string
+- the length i.e. how much memory is stored for the content
+- the capacity i.e. amount of memory received from the allocator
+= means we the created string variable is assigned to another, these infos get copied, but not its "acutal" content inside the memory.
+
+The 'double free error' problem
+=> When e.g. a string is assigned to another string and they go out of scope, it is normally trying to clear up memory twice (because we have to 'two referencs', SO
+
+Rust does this: If we assign one string to another and try to use the first one, it doesnt work because rust considers tring one as 'no longer valid' to prevent this error
+
+-> When Rust does invalidate the first string, it is considered a MOVE
+-> If we want to deep copy the data on the heap, it is called CLONING
+
+### Stack-Only Data: copy
+
+- > Further infos in 4.1
+
+### Ownership and functions
